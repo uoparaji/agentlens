@@ -175,3 +175,39 @@ def test_two_storage_instances_share_one_file(db_path: Path) -> None:
     finally:
         writer.close()
         reader.close()
+
+
+def test_ordering_is_stable_when_timestamps_collide(db_path: Path, monkeypatch) -> None:
+    """Regression: coarse clocks (Windows ~15ms) gave runs identical start times.
+
+    Insertion order is the tiebreaker, so the newest run is still listed first
+    and spans still come back in the order they were opened.
+    """
+    import agentlens.tracer as tracer_module
+    from agentlens.models import utc_now
+
+    frozen = utc_now()
+    monkeypatch.setattr(tracer_module, "utc_now", lambda: frozen)
+
+    lens = AgentLens(db_path)
+    try:
+        for i in range(5):
+            with lens.trace(f"run-{i}"):
+                for j in range(3):
+                    with lens.span(f"step-{j}"):
+                        pass
+
+        traces = lens.get_traces()
+        assert [t.name for t in traces] == ["run-4", "run-3", "run-2", "run-1", "run-0"]
+        assert all(t.start_time == frozen for t in traces)
+
+        spans = lens.get_trace(traces[0].id).spans
+        assert [s.name for s in spans] == ["run-4", "step-0", "step-1", "step-2"]
+
+        # Pagination must not repeat or skip rows when every timestamp matches.
+        first = lens.storage.list_traces(limit=2, offset=0).traces
+        second = lens.storage.list_traces(limit=2, offset=2).traces
+        assert [t.name for t in first] == ["run-4", "run-3"]
+        assert [t.name for t in second] == ["run-2", "run-1"]
+    finally:
+        lens.close()

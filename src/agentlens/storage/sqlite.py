@@ -307,7 +307,7 @@ class SQLiteStorage(Storage):
         conn = self._connect()
         total = conn.execute(f"SELECT COUNT(*) FROM traces{clause}", params).fetchone()[0]
         rows = conn.execute(
-            f"SELECT * FROM traces{clause} ORDER BY start_time DESC LIMIT ? OFFSET ?",
+            f"SELECT * FROM traces{clause} ORDER BY start_time DESC, rowid DESC LIMIT ? OFFSET ?",
             [*params, max(1, min(limit, 500)), max(0, offset)],
         ).fetchall()
         return TracePage(traces=[self._row_to_trace(r) for r in rows], total=total)
@@ -318,7 +318,8 @@ class SQLiteStorage(Storage):
         if row is None:
             return None
         spans = conn.execute(
-            "SELECT * FROM spans WHERE trace_id = ? ORDER BY start_time ASC", (trace_id,)
+            "SELECT * FROM spans WHERE trace_id = ? ORDER BY start_time ASC, rowid ASC",
+            (trace_id,),
         ).fetchall()
         return TraceDetail(
             **self._row_to_trace(row).model_dump(),

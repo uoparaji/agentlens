@@ -43,7 +43,7 @@ def test_common_python_values() -> None:
     assert to_jsonable(Doc("t", 0.5)) == {"title": "t", "score": 0.5}
     assert to_jsonable(Message(role="user", content="hi")) == {"role": "user", "content": "hi"}
     assert to_jsonable(Role.USER) == "user"
-    assert to_jsonable(Path("/tmp/x")) == "/tmp/x"
+    assert to_jsonable(Path("/tmp/x")) == str(Path("/tmp/x"))  # separator is platform-specific
     assert to_jsonable({1, 2}) == [1, 2]
     assert to_jsonable(datetime(2026, 1, 1, tzinfo=timezone.utc)).startswith("2026-01-01")
     assert to_jsonable(b"abc") == "<bytes len=3>"
