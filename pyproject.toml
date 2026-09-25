@@ -1,0 +1,93 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "agentlens"
+version = "0.1.0"
+description = "See what your AI agents are actually doing. Local-first tracing and debugging for AI agents."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+authors = [{ name = "The AgentLens contributors" }]
+keywords = ["ai", "agents", "observability", "tracing", "llm", "debugging", "llamaindex"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Debuggers",
+  "Typing :: Typed",
+]
+dependencies = [
+  "pydantic>=2.0",
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+llamaindex = ["llama-index-core>=0.11"]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.23",
+  "httpx>=0.27",
+  "ruff>=0.6",
+  "mypy>=1.11",
+]
+
+[project.urls]
+Homepage = "https://github.com/agentlens/agentlens"
+Repository = "https://github.com/agentlens/agentlens"
+Issues = "https://github.com/agentlens/agentlens/issues"
+Changelog = "https://github.com/agentlens/agentlens/blob/main/CHANGELOG.md"
+
+[project.scripts]
+agentlens = "agentlens.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agentlens"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/agentlens", "tests", "examples", "README.md", "LICENSE", "CHANGELOG.md"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+src = ["src", "tests", "examples"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4", "RUF"]
+ignore = ["B008", "RUF012"]
+
+[tool.ruff.lint.pyupgrade]
+# The package supports Python 3.9 and pydantic evaluates annotations at
+# runtime, so `Optional[X]` and `Dict[str, X]` must stay as they are.
+keep-runtime-typing = true
+
+[tool.ruff.lint.per-file-ignores]
+# Nested `with` blocks read better than combined ones when the test is about
+# what happens inside them.
+"tests/*" = ["B017", "SIM117", "E402"]
+
+[tool.mypy]
+# Note: the package supports 3.9; recent mypy cannot target it, and ruff's
+# `target-version = "py39"` is what enforces 3.9-compatible syntax.
+files = ["src/agentlens"]
+strict = true
+warn_unused_ignores = false
+disallow_subclassing_any = false
+plugins = []
+
+[[tool.mypy.overrides]]
+module = ["llama_index.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+filterwarnings = ["error::DeprecationWarning:agentlens.*"]
