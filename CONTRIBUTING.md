@@ -6,7 +6,7 @@ contribute to — most changes touch one file.
 ## Setup
 
 ```bash
-git clone https://github.com/agentlens/agentlens
+git clone https://github.com/uoparaji/agentlens
 cd agentlens
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[dev]"

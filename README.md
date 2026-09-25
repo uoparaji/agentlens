@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/icon-256.png" alt="AgentLens" width="112" />
+<img src="https://raw.githubusercontent.com/uoparaji/agentlens/main/assets/icon-256.png" alt="AgentLens" width="112" />
 
 # AgentLens
 
@@ -15,13 +15,13 @@ retrieval step and handoff, on a timeline you can actually read.
 
 </div>
 
-<img src="docs/dashboard-dark.png" alt="The AgentLens dashboard: a run list, a waterfall timeline of a nested agent trace, and a span inspector showing an LLM call's model, tokens, prompt and completion" />
+<img src="https://raw.githubusercontent.com/uoparaji/agentlens/main/docs/dashboard-dark.png" alt="The AgentLens dashboard: a run list, a waterfall timeline of a nested agent trace, and a span inspector showing an LLM call's model, tokens, prompt and completion" />
 
 <details>
 <summary>Light mode, and what a failure looks like</summary>
 
-<img src="docs/dashboard-light.png" alt="The AgentLens dashboard in light mode" />
-<img src="docs/dashboard-error.png" alt="A failed run: the failing span is red and the inspector shows the exception and traceback" />
+<img src="https://raw.githubusercontent.com/uoparaji/agentlens/main/docs/dashboard-light.png" alt="The AgentLens dashboard in light mode" />
+<img src="https://raw.githubusercontent.com/uoparaji/agentlens/main/docs/dashboard-error.png" alt="A failed run: the failing span is red and the inspector shows the exception and traceback" />
 
 </details>
 
@@ -45,14 +45,17 @@ see every step, how long it took, what went in and what came out.
 ## Quickstart
 
 ```bash
-pip install agentlens
+pip install agent-lens
 ```
+
+> The package installs as `agent-lens` and imports as `agentlens` — the
+> shorter name was already taken on PyPI by an unrelated project.
 
 <details>
 <summary>Installing from a source checkout</summary>
 
 ```bash
-git clone https://github.com/agentlens/agentlens
+git clone https://github.com/uoparaji/agentlens
 cd agentlens
 pip install -e .
 ```
@@ -207,7 +210,7 @@ await asyncio.gather(agent("q1"), agent("q2"))
 | Framework | Status |
 |---|---|
 | **Custom Python agents** | ✅ Supported — the core is framework-agnostic |
-| **LlamaIndex** | ✅ Supported — `pip install 'agentlens[llamaindex]'` |
+| **LlamaIndex** | ✅ Supported — `pip install 'agent-lens[llamaindex]'` |
 | CrewAI | Planned |
 | LangChain / LangGraph | Planned |
 | OpenAI Agents SDK | Planned |

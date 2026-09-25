@@ -59,12 +59,12 @@ The first release. Trace an agent, look at the trace.
 
 **Integrations**
 - LlamaIndex, via its instrumentation dispatcher
-  (`pip install 'agentlens[llamaindex]'`).
+  (`pip install 'agent-lens[llamaindex]'`).
 
 **Examples**
 - `agentlens demo` and `examples/demo_agent.py` (nested, concurrent, with a
   recovered failure), plus sync, async and LlamaIndex examples — all runnable
   without API keys.
 
-[Unreleased]: https://github.com/agentlens/agentlens/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/agentlens/agentlens/releases/tag/v0.1.0
+[Unreleased]: https://github.com/uoparaji/agentlens/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/uoparaji/agentlens/releases/tag/v0.1.0
