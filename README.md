@@ -9,6 +9,7 @@
 Local-first tracing and debugging for AI agents — every LLM call, tool call,
 retrieval step and handoff, on a timeline you can actually read.
 
+[![CI](https://github.com/uoparaji/agentlens/actions/workflows/ci.yml/badge.svg)](https://github.com/uoparaji/agentlens/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.9%20--%203.13-blue.svg)](pyproject.toml)
 [![Code style: ruff](https://img.shields.io/badge/lint-ruff-261230.svg)](https://docs.astral.sh/ruff/)
