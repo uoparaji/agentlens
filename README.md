@@ -316,6 +316,15 @@ pip install -e ".[dev]"
 pytest
 ```
 
+## Support
+
+AgentLens is free and MIT licensed, and always will be. If it saves you an
+afternoon of squinting at logs and you'd like to support the work, you can
+[sponsor the project](https://github.com/sponsors/uoparaji).
+
+Starring the repo, filing a good bug report or contributing an integration
+helps just as much.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).

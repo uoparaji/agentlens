@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- A `Funding` project URL, so the PyPI page links to sponsorship.
+
 ## [0.1.1] - 2026-09-26
 
 ### Fixed

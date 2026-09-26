@@ -45,6 +45,7 @@ Homepage = "https://github.com/uoparaji/agentlens"
 Repository = "https://github.com/uoparaji/agentlens"
 Issues = "https://github.com/uoparaji/agentlens/issues"
 Changelog = "https://github.com/uoparaji/agentlens/blob/main/CHANGELOG.md"
+Funding = "https://github.com/sponsors/uoparaji"
 
 [project.scripts]
 agentlens = "agentlens.cli:main"
