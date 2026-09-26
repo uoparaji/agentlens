@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Declare the licence as a PEP 639 SPDX expression (`License-Expression: MIT`)
+  instead of embedding the full licence text in the package metadata, so PyPI
+  shows "MIT" rather than the whole file.
+
 ## [0.1.0] - 2026-09-25
 
 The first release. Trace an agent, look at the trace.

@@ -7,14 +7,14 @@ name = "agent-lense"
 version = "0.1.0"
 description = "See what your AI agents are actually doing. Local-first tracing and debugging for AI agents."
 readme = "README.md"
-license = { file = "LICENSE" }
+license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.9"
 authors = [{ name = "The AgentLens contributors" }]
 keywords = ["ai", "agents", "observability", "tracing", "llm", "debugging", "llamaindex"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
