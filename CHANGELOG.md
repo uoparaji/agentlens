@@ -59,7 +59,7 @@ The first release. Trace an agent, look at the trace.
 
 **Integrations**
 - LlamaIndex, via its instrumentation dispatcher
-  (`pip install 'agent-lens[llamaindex]'`).
+  (`pip install 'agent-lense[llamaindex]'`).
 
 **Examples**
 - `agentlens demo` and `examples/demo_agent.py` (nested, concurrent, with a

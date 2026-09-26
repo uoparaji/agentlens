@@ -46,10 +46,10 @@ see every step, how long it took, what went in and what came out.
 ## Quickstart
 
 ```bash
-pip install agent-lens
+pip install agent-lense
 ```
 
-> The package installs as `agent-lens` and imports as `agentlens` — the
+> The package installs as `agent-lense` and imports as `agentlens` — the
 > shorter name was already taken on PyPI by an unrelated project.
 
 <details>
@@ -211,7 +211,7 @@ await asyncio.gather(agent("q1"), agent("q2"))
 | Framework | Status |
 |---|---|
 | **Custom Python agents** | ✅ Supported — the core is framework-agnostic |
-| **LlamaIndex** | ✅ Supported — `pip install 'agent-lens[llamaindex]'` |
+| **LlamaIndex** | ✅ Supported — `pip install 'agent-lense[llamaindex]'` |
 | CrewAI | Planned |
 | LangChain / LangGraph | Planned |
 | OpenAI Agents SDK | Planned |
