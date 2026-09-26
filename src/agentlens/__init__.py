@@ -39,7 +39,7 @@ from agentlens.sdk import (
 from agentlens.storage import SQLiteStorage, Storage
 from agentlens.tracer import SpanHandle, TraceHandle, Tracer
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 __all__ = [
     "REDACTED",

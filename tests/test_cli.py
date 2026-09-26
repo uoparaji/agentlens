@@ -111,3 +111,18 @@ def test_ui_reports_a_busy_port(tmp_path: Path, capsys: pytest.CaptureFixture[st
     finally:
         del sys.modules["uvicorn"]
     assert "--port 4181" in capsys.readouterr().err
+
+
+def test_version_is_declared_in_exactly_one_place() -> None:
+    """`__version__` and pyproject.toml must not drift apart on a release."""
+    import re
+
+    import agentlens
+
+    pyproject = Path(__file__).resolve().parent.parent / "pyproject.toml"
+    if not pyproject.exists():  # running against an installed package
+        pytest.skip("no source checkout")
+
+    declared = re.search(r'^version = "([^"]+)"', pyproject.read_text(), re.M)
+    assert declared is not None
+    assert declared.group(1) == agentlens.__version__

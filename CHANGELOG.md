@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-26
+
 ### Fixed
 
 - Declare the licence as a PEP 639 SPDX expression (`License-Expression: MIT`)
   instead of embedding the full licence text in the package metadata, so PyPI
-  shows "MIT" rather than the whole file.
+  shows "MIT" rather than the whole file. No code changes.
 
 ## [0.1.0] - 2026-09-25
 
@@ -72,5 +74,6 @@ The first release. Trace an agent, look at the trace.
   recovered failure), plus sync, async and LlamaIndex examples — all runnable
   without API keys.
 
-[Unreleased]: https://github.com/uoparaji/agentlens/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/uoparaji/agentlens/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/uoparaji/agentlens/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/uoparaji/agentlens/releases/tag/v0.1.0
