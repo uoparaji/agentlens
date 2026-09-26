@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/uoparaji/agentlens/main/assets/icon-256.png" alt="AgentLens" width="112" />
-
-# AgentLens
+<img src="https://raw.githubusercontent.com/uoparaji/agentlens/main/assets/banner.png" alt="AgentLens" width="100%" />
 
 **See what your AI agents are actually doing.**
 
