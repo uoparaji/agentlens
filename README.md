@@ -41,6 +41,9 @@ see every step, how long it took, what went in and what came out.
 - **Tiny API.** A decorator and a context manager. That's the whole thing.
 - **Sync and async.** Correct nesting across `await` points and concurrent tasks.
 
+**Status:** 0.1.x, classified as Alpha on PyPI. The API may change before 1.0;
+every release is recorded in the [changelog](CHANGELOG.md).
+
 ## Quickstart
 
 ```bash
@@ -70,6 +73,7 @@ Instrument a function:
 from agentlens import trace, span
 
 
+# search() and summarize() stand in for your own tool and LLM calls.
 @trace
 def research_agent(topic: str) -> str:
     with span("search", span_type="tool", metadata={"query": topic}) as s:
@@ -99,6 +103,12 @@ No agent of your own yet? Generate a real trace in one command:
 ```bash
 agentlens demo && agentlens ui
 ```
+
+See [examples/custom_agent.py](examples/custom_agent.py) for a complete
+hand-written agent, [examples/async_agent.py](examples/async_agent.py) for the
+concurrent-tracing case below, and
+[examples/llamaindex_agent.py](examples/llamaindex_agent.py) for the LlamaIndex
+integration.
 
 ## What you can inspect
 
@@ -203,6 +213,9 @@ async def agent(question: str) -> str:
 # Two runs at once produce two clean, separate traces.
 await asyncio.gather(agent("q1"), agent("q2"))
 ```
+
+[examples/async_agent.py](examples/async_agent.py) is a runnable version, with
+three concurrent fetches you can watch overlap in the timeline.
 
 ## Integrations
 
