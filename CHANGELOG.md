@@ -10,6 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - A `Funding` project URL, so the PyPI page links to sponsorship.
+- Bug report, feature request and pull request templates.
+
+### Fixed
+
+- The LlamaIndex install hint now names the package that exists on PyPI,
+  `agent-lense[llamaindex]`, instead of `agentlens[llamaindex]`.
 
 ## [0.1.1] - 2026-09-26
 

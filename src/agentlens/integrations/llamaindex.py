@@ -52,7 +52,7 @@ try:
 except ImportError as exc:  # pragma: no cover - exercised only without the extra
     raise ImportError(
         "The LlamaIndex integration requires llama-index-core.\n"
-        "Install it with:  pip install 'agentlens[llamaindex]'"
+        "Install it with:  pip install 'agent-lense[llamaindex]'"
     ) from exc
 
 

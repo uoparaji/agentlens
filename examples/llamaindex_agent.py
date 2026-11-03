@@ -1,6 +1,6 @@
 """Tracing LlamaIndex automatically.
 
-    pip install 'agentlens[llamaindex]'
+    pip install 'agent-lense[llamaindex]'
     python examples/llamaindex_agent.py
     agentlens ui
 
