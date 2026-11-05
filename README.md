@@ -37,6 +37,8 @@ AgentLens records that tree. Two lines of code, one local command, and you can
 see every step, how long it took, what went in and what came out.
 
 - **Local-first.** Traces go to a SQLite file on your machine. Nothing is uploaded.
+  Hosted observability services need an account and send your traces over the
+  network; AgentLens needs neither.
 - **Framework-agnostic.** The core knows nothing about any agent framework.
 - **Tiny API.** A decorator and a context manager. That's the whole thing.
 - **Sync and async.** Correct nesting across `await` points and concurrent tasks.
@@ -73,7 +75,8 @@ Instrument a function:
 from agentlens import trace, span
 
 
-# search() and summarize() stand in for your own tool and LLM calls.
+# Illustrative: search() and summarize() stand in for your own tool and LLM calls.
+# For a version that runs unmodified, see examples/custom_agent.py.
 @trace
 def research_agent(topic: str) -> str:
     with span("search", span_type="tool", metadata={"query": topic}) as s:
