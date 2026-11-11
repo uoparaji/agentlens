@@ -69,6 +69,12 @@ The dashboard ships prebuilt, so you do **not** need Node to use AgentLens.
 
 </details>
 
+No agent of your own yet? Generate a real trace in one command:
+
+```bash
+agentlens demo && agentlens ui
+```
+
 Instrument a function:
 
 ```python
@@ -99,12 +105,6 @@ Then look at it:
 
 ```bash
 agentlens ui        # opens http://localhost:4180
-```
-
-No agent of your own yet? Generate a real trace in one command:
-
-```bash
-agentlens demo && agentlens ui
 ```
 
 See [examples/custom_agent.py](examples/custom_agent.py) for a complete
