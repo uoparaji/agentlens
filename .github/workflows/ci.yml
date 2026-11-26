@@ -19,7 +19,15 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         python-version: ["3.9", "3.10", "3.11", "3.12", "3.13"]
+        exclude:
+          # ubuntu-latest moved to Ubuntu 26.04, which has no Python 3.9
+          # build. 3.9 is still supported (requires-python >= 3.9), so it
+          # runs on the last Ubuntu image that has it.
+          - os: ubuntu-latest
+            python-version: "3.9"
         include:
+          - os: ubuntu-24.04
+            python-version: "3.9"
           - os: macos-latest
             python-version: "3.12"
           - os: windows-latest
