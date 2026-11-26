@@ -75,14 +75,21 @@ No agent of your own yet? Generate a real trace in one command:
 agentlens demo && agentlens ui
 ```
 
-Instrument a function:
+Instrument a function. This example uses local stand-ins for search and
+summarization, so it runs without API keys.
 
 ```python
 from agentlens import trace, span
 
 
-# Illustrative: search() and summarize() stand in for your own tool and LLM calls.
-# For a version that runs unmodified, see examples/custom_agent.py.
+def search(topic: str) -> str:
+    return f"Result about {topic}"
+
+
+def summarize(result: str) -> str:
+    return result
+
+
 @trace
 def research_agent(topic: str) -> str:
     with span("search", span_type="tool", metadata={"query": topic}) as s:
@@ -98,7 +105,13 @@ def research_agent(topic: str) -> str:
     return answer
 
 
-research_agent("quantum error correction")
+print(research_agent("quantum error correction"))
+```
+
+Expected output:
+
+```text
+Result about quantum error correction
 ```
 
 Then look at it:
